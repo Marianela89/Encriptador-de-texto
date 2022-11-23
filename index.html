@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="es">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width"> 
+        <title>Challenge Encriptador</title>
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="estilo.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200&display=swap" rel="stylesheet">
+    </head>
+
+
+<body>
+
+   <header>
+     <div class="titulo-principal">Alura Challenge 01 - Encriptador</div>
+     <img class="banner" src="Imagenes/574dca70-fd74-45ae-95c6-60a76e79c32e.jpeg"> 
+    </div> 
+       
+   </header>     
+    
+    ><main>
+      
+       <form>
+        <textarea cols="70" rows="10" id="mensaje"  class="input-padron" placeholder="INGRESE TEXTO" ></textarea>
+        <textarea cols="70" rows="10" id="mensaje2"  class="input-padron2" ></textarea>
+        <input type="button" value="ENCRIPTAR" id="botonencriptar" class="encriptado">
+        <input type="button" value="DESENCRIPTAR" id="botondesencriptar" class="desencriptado">
+        <input type="button" value="COPIAR" class="copiar-texto" id="botonCopiar">
+       </form>
+    </main>
+</body>
+
+
+<script>
+
+  var texto = document.getElementById("mensaje");
+  var texto2 = document.getElementById("mensaje2");
+
+
+  function encriptar(){
+    var nuevotexto=texto; 
+     nuevotexto.value=texto.value.replace(/e/gi,"enter");
+     nuevotexto.value=texto.value.replace(/i/gi,"imes");
+     nuevotexto.value=texto.value.replace(/a/gi,"ai");
+     nuevotexto.value=texto.value.replace(/o/gi,"ober");
+     nuevotexto.value=texto.value.replace(/u/gi,"ufat");
+     document.getElementById("mensaje2").value=nuevotexto.value;
+     document.getElementById("mensaje").value=" ";
+ }
+ 
+ 
+ function DesEncriptar(){
+    var nuevotexto=texto2; 
+     nuevotexto.value=texto2.value.replace(/enter/gi,"e");
+     nuevotexto.value=texto2.value.replace(/imes/gi,"i");
+     nuevotexto.value=texto2.value.replace(/ai/gi,"a");
+     nuevotexto.value=texto2.value.replace(/ober/gi,"o");
+     nuevotexto.value=texto2.value.replace(/ufat/gi,"u");
+     document.getElementById("mensaje").value=nuevotexto.value;
+     document.getElementById("mensaje2").value=" ";
+     
+ }
+  
+ function Copiar(){
+  var textoEncriptado=texto2.value;
+  navigator.clipboard.writeText(textoEncriptado);
+ }
+
+   var boton2=document.getElementById("botondesencriptar");
+   boton2.onclick=DesEncriptar;   
+ 
+ 
+   var boton1=document.getElementById("botonencriptar");
+   boton1.onclick=encriptar;
+
+   var boton3=document.getElementById("botonCopiar");
+   boton3.onclick=Copiar;
+ 
+ </script>
